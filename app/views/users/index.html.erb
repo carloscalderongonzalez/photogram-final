@@ -3,44 +3,44 @@
 
     <h1>List of users</h1>
 
-<table border="1">
-  <tbody>
-  <tr>
-    <th>
-      Username
-    </th>
+  <table border="1">
+    <tbody>
+    <tr>
+      <th>
+        Username
+      </th>
 
-    <th>
-      Private?
-    </th>
+      <th>
+        Private?
+      </th>
 
-    <th></th>
-    <th></th>
-  </tr>
+      <th></th>
+      <th></th>
+    </tr>
 
 
-  <tr>
-      <% @list_of_users.each do |a_user| %>
-    <th>
-     <%= a_user.username %>
-    </th>
+    <tr>
+        <% @list_of_users.each do |a_user| %>
+      <td>
+      <%= a_user.username %>
+      </td>
 
-    <th>
-      <%= a_photo.private %>
-    </th>
+      <td>
+        <%= a_user.private %>
+      </td>
 
-    <th>
-    Follow
-    </th>
+      <td>
+      Follow
+      </td>
 
-    <th>
-       <a href="/users/<%= a_user.username %>">
-            Show details
-        </a>
-     </th>
-  </tr>
-      <% end %>
-</tbody></table>
+      <td>
+        <a href="/users/<%= a_user.username %>">
+              Show details
+          </a>
+      </td>
+    </tr>
+        <% end %>
+  </tbody></table>
 
 
 </body></html>

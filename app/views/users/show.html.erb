@@ -1,0 +1,84 @@
+<html>
+  <body>
+
+
+    <h1>a</h1>
+
+<dl>
+  <dt>Private</dt>
+  <dd><%= @the_user.private %></dd>
+
+  <dt>Followers</dt>
+  <dd>
+    <%= @the_user.followrequests_count %>
+      <h4>Pending follow requests</h4>
+      <ul>
+      </ul>
+  </dd>
+
+  <dt>Following</dt>
+  <dd><%= @the_user.sentrequest_count %></dd>
+
+  <dt>Edit user</dt>
+  <dd>
+    <form action="/modify_user/137" method="post">
+      <label for="browser_username">Username</label>
+      <input id="browser_username" type="text" name="query_username" placeholder="Enter a username..." value="a" fdprocessedid="350ab">
+
+      <label for="browser_private">Private?</label>
+      <input id="browser_private" type="checkbox" name="query_private">
+
+      <button fdprocessedid="w0td4q">Update user</button>
+    </form>
+  </dd>
+</dl>
+
+<nav>
+  <ul>
+    <li>
+      <a href="/users/a">Profile</a>
+    </li>
+    <li>
+      <a href="/users/a/liked_photos">Liked photos</a>
+    </li>
+    <li>
+      <a href="/users/a/feed">Feed</a>
+    </li>
+    <li>
+      <a href="/users/a/discover">Discover</a>
+    </li>
+  </ul>
+</nav>
+
+<h2>Own photos (0)</h2>
+
+<table border="1">
+  <tbody><tr>
+    <th>
+      Image
+    </th>
+
+    <th>
+      Owner
+    </th>
+
+    <th>
+      Caption
+    </th>
+
+    <th>
+      Posted
+    </th>
+
+    <th>
+      Likes
+    </th>
+
+    <th></th>
+  </tr>
+
+</tbody></table>
+
+  
+
+</body></html>
