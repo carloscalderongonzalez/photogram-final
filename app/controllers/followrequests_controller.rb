@@ -1,6 +1,6 @@
 class FollowrequestsController < ApplicationController
   def index
-    matching_followrequests = Followrequest.all
+    matching_followrequests = FollowRequest.all
 
     @list_of_followrequests = matching_followrequests.order({ :created_at => :desc })
 
@@ -10,7 +10,7 @@ class FollowrequestsController < ApplicationController
   def show
     the_id = params.fetch("path_id")
 
-    matching_followrequests = Followrequest.where({ :id => the_id })
+    matching_followrequests = FollowRequest.where({ :id => the_id })
 
     @the_followrequest = matching_followrequests.at(0)
 
@@ -18,7 +18,7 @@ class FollowrequestsController < ApplicationController
   end
 
   def create
-    the_followrequest = Followrequest.new
+    the_followrequest = FollowRequest.new
     the_followrequest.recipient_id = params.fetch("query_recipient_id")
     the_followrequest.sender_id = params.fetch("query_sender_id")
     the_followrequest.status = params.fetch("query_status")
@@ -33,7 +33,7 @@ class FollowrequestsController < ApplicationController
 
   def update
     the_id = params.fetch("path_id")
-    the_followrequest = Followrequest.where({ :id => the_id }).at(0)
+    the_followrequest = FollowRequest.where({ :id => the_id }).at(0)
 
     the_followrequest.recipient_id = params.fetch("query_recipient_id")
     the_followrequest.sender_id = params.fetch("query_sender_id")
@@ -49,7 +49,7 @@ class FollowrequestsController < ApplicationController
 
   def destroy
     the_id = params.fetch("path_id")
-    the_followrequest = Followrequest.where({ :id => the_id }).at(0)
+    the_followrequest = FollowRequest.where({ :id => the_id }).at(0)
 
     the_followrequest.destroy
 
