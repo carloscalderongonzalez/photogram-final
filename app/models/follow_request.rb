@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: followrequests
+# Table name: follow_requests
 #
 #  id           :integer          not null, primary key
 #  status       :string
