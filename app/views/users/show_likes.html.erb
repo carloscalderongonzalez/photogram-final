@@ -11,8 +11,6 @@
   <dt>Followers</dt>
   <dd>
     <%= @followers_count %>
-      <ul>
-      </ul>
   </dd>
 
   <dt>Following</dt>
@@ -37,7 +35,7 @@
   </ul>
 </nav>
 
-<h2>Own photos (<%=@list_of_photos.count%>)</h2>
+<h2>Liked photos (<%=@list_of_photos_liked.count%>)</h2>
 
 <table border="1">
   <tbody>
@@ -64,7 +62,10 @@
 
     <th></th>
   </tr>
-  <% @list_of_photos.each do |a_photo| %>
+
+
+  <% @list_of_photos_liked.each do |a_photo| %>
+  
   <tr>
     <td> <img src="<%= a_photo.image %>"> </td>
     <td> <%= a_photo.owner.username %></td>
@@ -75,7 +76,3 @@
   <% end %>
 
 </tbody></table>
-
-  
-
-</body></html>

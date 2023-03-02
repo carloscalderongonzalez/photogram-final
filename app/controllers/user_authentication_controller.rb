@@ -84,6 +84,7 @@ class UserAuthenticationController < ApplicationController
     end
   end
 
+
   def destroy
     @current_user.destroy
     reset_session
