@@ -72,8 +72,8 @@ class UserAuthenticationController < ApplicationController
     @user.likes_count = params.fetch("query_likes_count")
     @user.private = params.fetch("query_private", false)
     @user.username = params.fetch("query_username")
-    @user.followrequests_count = params.fetch("query_followrequests_count")
-    @user.sentrequest_count = params.fetch("query_sentrequest_count")
+    #@user.followrequests_count = params.fetch("query_followrequests_count")
+    #@user.sentrequest_count = params.fetch("query_sentrequest_count")
     
     if @user.valid?
       @user.save

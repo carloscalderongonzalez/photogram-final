@@ -17,31 +17,20 @@
   <body>
 
     <ul>
-      <li>
-        <a href="/users">
-          All users
-        </a>
-      </li>
-      
-      <li>
-        <a href="/photos">
-          All public photos
-        </a>
-      </li>
+      <li><a href="/users"> All users </a> </li>
+      <li> <a href="/photos"> All public photos </a> </li>
 
-        <li>
-          <a href="/user_sign_in">
-            Sign in
-          </a>
-        </li>
-
-        <li>
-          <a href="/user_sign_up">
-            Sign up
-          </a>
-        </li>
+      <% user = User.where({ :id => session[:user_id] }).at(0) %>
+      <% if session[:user_id] == nil%>
+        <li> <a href="/user_sign_in"> Sign in </a> </li>
+        <li> <a href="/user_sign_up"> Sign up </a> </li>
+      <% else %>
+        <li> <a href="/edit_user_profile"> <%= user.username %> </a> </li>
+        <li> <a href="/user_sign_out"> Sign out </a> </li>
+      <% end %>
     </ul>
 
+    <%= notice %>
     <%= yield %>
   </body>
 </html>

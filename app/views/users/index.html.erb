@@ -30,13 +30,22 @@
       </td>
 
       <td>
-      Follow
+        <form action="/insert_follow_request" method="post">
+          <input type="hidden" name="query_recipient_id" value="<%= a_user.id %>">
+          <button> Follow </button>
+        </form>
       </td>
 
       <td>
-        <a href="/users/<%= a_user.username %>">
-              Show details
+        <% if a_user.private==true %>
+          <a href="/not_authorized">
+            Show details
           </a>
+        <% else %>
+          <a href="/users/<%= a_user.username %>">
+            Show details
+          </a>
+        <% end %>
       </td>
     </tr>
         <% end %>

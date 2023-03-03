@@ -11,8 +11,10 @@
   <dt>Followers</dt>
   <dd>
     <%= @followers_count %>
-      <ul>
-      </ul>
+        <form action="/insert_follow_request" method="post">
+          <input type="hidden" name="query_recipient_id" value="<%= @the_user.id %>">
+          <button> Follow </button>
+        </form>
   </dd>
 
   <dt>Following</dt>
@@ -42,26 +44,11 @@
 <table border="1">
   <tbody>
   <tr>
-    <th>
-      Image
-    </th>
-
-    <th>
-      Owner
-    </th>
-
-    <th>
-      Caption
-    </th>
-
-    <th>
-      Posted
-    </th>
-
-    <th>
-      Likes
-    </th>
-
+    <th>Image</th>
+    <th>Owner</th>
+    <th>Caption </th>
+    <th>Posted</th>
+    <th> Likes</th>
     <th></th>
   </tr>
   <% @list_of_photos.each do |a_photo| %>
@@ -71,6 +58,7 @@
     <td> <%= a_photo.caption %></td>
     <td> <%= time_ago_in_words(a_photo.created_at) %></td>
     <td> <%= a_photo.likes_count %></td>
+    <td> <a href="/photos/<%= a_photo.id %>">Show Details</a></td>
   </tr>
   <% end %>
 

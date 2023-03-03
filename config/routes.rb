@@ -85,6 +85,9 @@ Rails.application.routes.draw do
   get("/users/:path_id/feed", { :controller => "users", :action => "show_feed" })
 
   get("/users/:path_id/discover", { :controller => "users", :action => "show_discover" })
+
+  #NOT AUTHORIZED
+  get("/not_authorized", { :controller => "users", :action => "not_authorized" })
   # ------------------------------
 
   # SIGN IN FORM

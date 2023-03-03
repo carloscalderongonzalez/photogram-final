@@ -100,4 +100,9 @@ class UsersController < ApplicationController
     render({ :template => "users/show_discover.html.erb" })
   end
 
+  def not_authorized
+    redirect_to("/", { :notice => "You're not authorized for that."})
+  end
+
+
 end

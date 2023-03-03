@@ -32,7 +32,14 @@
 
       <dt>Add a fan</dt>
       <dd>
-
+        <% if @current_user_fan == nil  %>
+        <form action="/insert_like" method="post">
+          <input type="hidden" value="<%= @the_photo.id %>" name="query_photo_id">
+          <button>Like</button>
+        </form>
+        <% else  %>
+        <a href="/delete_like/<%= @current_user_fan.id %>"> Unlike </a>
+        <% end  %>
       </dd>
 
     </dl>
