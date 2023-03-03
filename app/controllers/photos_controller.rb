@@ -14,16 +14,26 @@ class PhotosController < ApplicationController
 
     @the_photo = matching_photos.at(0)
 
+    @list_of_comments = Comment.where({ :photo_id => the_id })
+
+
+    @matching_likes = Like.where({ :photo_id => @the_photo.id })
+    @array_of_fans = Array.new
+    @matching_likes.each do |a_like|
+      @array_of_fans.push(a_like.fan_id)
+    end
+    @list_of_fans = User.where({ :id => @array_of_fans })
+
     render({ :template => "photos/show.html.erb" })
   end
 
   def create
     the_photo = Photo.new
     the_photo.caption = params.fetch("query_caption")
-    the_photo.comments_count = params.fetch("query_comments_count")
+    #the_photo.comments_count = params.fetch("query_comments_count")
     the_photo.image = params.fetch("query_image")
-    the_photo.likes_count = params.fetch("query_likes_count")
-    the_photo.owner_id = params.fetch("query_owner_id")
+    #the_photo.likes_count = params.fetch("query_likes_count")
+    #the_photo.owner_id = params.fetch("query_owner_id")
 
     if the_photo.valid?
       the_photo.save
